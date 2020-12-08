@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="beer.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Beer Project by CMA</title>
+</head>
+
+<body>
+    <header>
+        <h1>Beer Project with Punk API</h1>
+
+        <div class="flexdiv">
+            <input class="inp" type="text" placeholder="Search for beer">
+            <input class="search" type="button" value="Search">
+            <input class="adv" type="button" value="Advanced">
+            <input class="rnd" type="button" value="Get Random Beer!">
+        </div>
+
+    </header>
+    <main>
+        <div class="display"></div>
+        <div class="advanced invisible">
+            <form action="" autocomplete="off">
+                <h2>Advanced Search</h2>
+                <input type="text" name="name" placeholder="Name"><br>
+                <input type="text" name="hops" placeholder="Hops"><br>
+                <input type="text" name="malt" placeholder="Malt"><br>
+                <input type="text" name="brewbefore" placeholder="Brewed Before"><br>
+                <input type="text" name="brewafter" placeholder="Brewed After"><br>
+                <input type="text" name="abvgreater" placeholder="Alcohol by volume greater than"><br>
+                <input type="text" name="abvless" placeholder="Alcohol by volume lesser than"><br>
+                <input type="button" value="Submit">
+            </form>
+            <div class="results">
+                <h2>Search Results</h2>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
