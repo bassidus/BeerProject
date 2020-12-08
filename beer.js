@@ -24,6 +24,14 @@ advSubmit.addEventListener('click', (e) => {
 });
 
 function advSearch(result) {
+    let name = '?beer_name=' + advName.value;
+    let abv_gt = '?abv_gt=' + advAbvGre.value;
+    let abv_lt = '?abv_lt=' + advAbvLes.value;
+    let hops = '?hops=' + advHops.value;
+    let malt = '?malt=' + advMalt.value;
+    let brewed_before = '?brewed_before=' + advBrewBef.value;
+    let brewed_after = '?brewed_after=' + advBrewAft.value;
+    
     console.log(result)
     removeAllChildNodes(resultUl);
     result.forEach(beer => {
