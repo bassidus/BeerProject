@@ -8,6 +8,7 @@ const advBtn = document.querySelector('.flexdiv > input.adv');
 const advSection = document.querySelector('main > div.advanced');
 const advInputs = document.querySelectorAll('form > input[type=text]');
 const advSubmit = document.querySelector('form > input[type=button]');
+const infoPage = document.querySelector('.beerinfo');
 
 const root = 'https://api.punkapi.com/v2/beers';
 const random = 'https://api.punkapi.com/v2/beers/random';
@@ -23,6 +24,33 @@ advInputs.forEach(input => {
     });
 });
 advSubmit.addEventListener('click', advSearch);
+
+function beerInfoPage(beer) {
+    removeAllChildNodes(infoPage);
+    const info = [
+        `name: ${beer.name}`,
+        `abv: ${beer.abv}`,
+        `attenuation_level: ${beer.attenuation_level}`,
+        `brewers_tips: ${beer.brewers_tips}`,
+        `contributed_by: ${beer.contributed_by}`,
+        `description: ${beer.description}`,
+        `ebc: ${beer.ebc}`,
+        `first_brewed: ${beer.first_brewed}`,
+        `ibu: ${beer.ibu}`,
+        `ph: ${beer.ph}`,
+        `srm: ${beer.srm}`,
+        `tagline: ${beer.tagline}`,
+    ];
+    const ul  = document.createElement('ul');
+    info.forEach(s => {
+        const li = document.createElement('li');
+        li.textContent = s;
+        ul.appendChild(li);
+    });
+    infoPage.appendChild(ul);
+    infoPage.classList.toggle('invisible');
+}
+
 function validate() {
     // validera advInputs
     return true;
@@ -64,6 +92,9 @@ function getPage(start) {
         if (beer == undefined) break;
         const li = document.createElement('li');
         li.textContent = beer.name;
+        li.addEventListener('click', () => {
+            beerInfoPage(beer);
+        });
         resultUl.appendChild(li);
     }
 
@@ -97,6 +128,9 @@ searchInp.addEventListener('keydown', (e) => {
 
 searchBtn.addEventListener('click', () => {
     getData(`${root}${beername}${searchInp.value}`, renderBeer);
+});
+infoPage.addEventListener('click', () => {
+    infoPage.classList.toggle('invisible');
 });
 
 advBtn.addEventListener('click', () => {
@@ -150,5 +184,9 @@ function renderBeer(data) {
         p.textContent = 'See More >';
 
         displaySection.appendChild(outerDiv);
+        outerDiv.addEventListener('click', (e) => {
+            console.log(beer);
+            beerInfoPage(beer);
+        });
     });
 }
