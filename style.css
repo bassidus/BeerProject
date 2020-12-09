@@ -9,12 +9,14 @@ header {
     margin: auto;
     text-align: center;
     font-size: 2em;
-    font-family: monospace;
     text-transform: uppercase;
 }
 
 header>h1 {
     margin: 0;
+    font-family: monospace;
+    font-size: 3em;
+
 }
 
 .flexdiv {
@@ -44,15 +46,16 @@ main {
 }
 
 .beerinfo {
-    position: absolute;
-    z-index: 99;
     background-color: white;
-    width: 38%;
     height: 60%;
     border: black 1px solid;
     box-shadow: 5px 5px 5px grey;
-    top: 18%;
-    left: 34%;
+    top: 45%;
+    left: 52%;
+    max-width: 550px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 10px;
 }
 
 main>.advanced {
@@ -127,8 +130,8 @@ main>div.display::after {
     margin: 20px 10px;
     width: 213px;
     height: 340px;
-    border: whitesmoke 1px solid;
-    box-shadow: 5px 5px 5px whitesmoke;
+    border: lightgray 1px solid;
+    box-shadow: 5px 5px 5px gray;
     font-family: 'Barlow Condensed', sans-serif;
 }
 

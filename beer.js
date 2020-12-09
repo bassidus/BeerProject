@@ -48,7 +48,12 @@ function beerInfoPage(beer) {
         ul.appendChild(li);
     });
     infoPage.appendChild(ul);
-    infoPage.classList.toggle('invisible');
+    
+    document.addEventListener('mousedown', function _hideInfo() {
+        infoPage.classList.add('invisible');
+        document.removeEventListener('mousedown', _hideInfo);
+    })
+    infoPage.classList.remove('invisible');
 }
 
 function validate() {
@@ -129,9 +134,9 @@ searchInp.addEventListener('keydown', (e) => {
 searchBtn.addEventListener('click', () => {
     getData(`${root}${beername}${searchInp.value}`, renderBeer);
 });
-infoPage.addEventListener('click', () => {
-    infoPage.classList.toggle('invisible');
-});
+// infoPage.addEventListener('click', () => {
+//     infoPage.classList.toggle('invisible');
+// });
 
 advBtn.addEventListener('click', () => {
     displaySection.classList.toggle('invisible');
@@ -157,35 +162,27 @@ function renderBeer(data) {
         const outerDiv = document.createElement('div');
         const imgDiv = document.createElement('div');
         const h4Div = document.createElement('div');
-
         const img = document.createElement('img');
         const h4 = document.createElement('h4');
         const p = document.createElement('p');
 
-        if (beer.image_url != null) {
-            imgDiv.appendChild(img);
-            img.src = beer.image_url;
-        } else {
-            const p404 = document.createElement('p');
-            p404.textContent = '404 Not Found';
-            imgDiv.appendChild(p404);
-        }
-        outerDiv.appendChild(imgDiv);
-
-        h4Div.appendChild(h4);
-        outerDiv.appendChild(h4Div)
-        outerDiv.appendChild(p);
-
-        imgDiv.classList.add('imgcontainer');
-        outerDiv.classList.add('beercontainer');
-        h4Div.classList.add('title')
-
+        img.src = beer.image_url != null ? beer.image_url : 'notfound.png'
         h4.textContent = beer.name;
         p.textContent = 'See More >';
 
+        imgDiv.classList.add('imgcontainer');
+        h4Div.classList.add('title')
+        outerDiv.classList.add('beercontainer');
+        
+        imgDiv.appendChild(img);
+        h4Div.appendChild(h4);
+        outerDiv.appendChild(imgDiv);
+        outerDiv.appendChild(h4Div)
+        outerDiv.appendChild(p);
+
         displaySection.appendChild(outerDiv);
         outerDiv.addEventListener('click', (e) => {
-            console.log(beer);
+            // console.log(beer);
             beerInfoPage(beer);
         });
     });
