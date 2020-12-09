@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="beer.js" defer></script>
+    <script src="myfunctions.js" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Beer Project by CMA</title>
 </head>
@@ -12,36 +13,37 @@
 <body>
     <header>
         <h1 class="title">Beer Project with Punk API</h1>
-
-        <div class="flexdiv">
-            <input class="inp" type="text" placeholder="Search for beer">
-            <input class="search" type="button" value="Search">
-            <input class="adv" type="button" value="Advanced">
-            <input class="rnd" type="button" value="Get Random Beer!">
-        </div>
+        <a href="https://punkapi.com/documentation/v2">https://punkapi.com/documentation/v2</a>
+        
+        <section class="flexdiv">
+            <input class="inp-search" type="text" placeholder="Search for beer">
+            <button class="btn-search">Search</button>
+            <button class="btn-advanced">Advanced</button>
+            <button class="btn-random">Get Random Beer!</button>
+        </section>
 
     </header>
     <main>
-        <div class="display"></div>
-        <div class="beerinfo invisible"></div>
-        <div class="advanced invisible">
-            <form autocomplete="off">
+        <section class="beer-gallery"></section>
+        <section class="beer-info invisible"></section>
+        <section class="adv-search invisible">
+            <form class="adv-form" autocomplete="off">
                 <h2>Advanced Search</h2>
-                <input type="text" name="name" placeholder="Name"><br>
-                <input type="text" name="hops" placeholder="Hops"><br>
-                <input type="text" name="malt" placeholder="Malt"><br>
-                <input type="text" name="brewbefore" placeholder="Brewed Before"><br>
-                <input type="text" name="brewafter" placeholder="Brewed After"><br>
-                <input type="text" name="abvgreater" placeholder="Alcohol by volume greater than"><br>
-                <input type="text" name="abvless" placeholder="Alcohol by volume lesser than"><br>
-                <input type="button" value="Submit">
+                <input class="adv-input" type="text" placeholder="Name"><br>
+                <input class="adv-input" type="text" placeholder="Hops"><br>
+                <input class="adv-input" type="text" placeholder="Malt"><br>
+                <input class="adv-input" type="text" placeholder="Brewed Before"><br>
+                <input class="adv-input" type="text" placeholder="Brewed After"><br>
+                <input class="adv-input" type="text" placeholder="Alcohol by volume greater than"><br>
+                <input class="adv-input" type="text" placeholder="Alcohol by volume lesser than"><br>
+                <input class="adv-search-btn" type="button" value="Submit">
             </form>
-            <div class="results">
+            <section class="adv-search-results">
                 <h2>Search Results</h2>
-                <div class="advresults"></div>
-                <div class="pageButtonsSection"></div>
-            </div>
-        </div>
+                <div class="adv-results"></div>
+                <div class="adv-results-page-buttons"></div>
+            </section>
+        </section>
     </main>
 </body>
 
